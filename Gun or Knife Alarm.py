@@ -6,7 +6,7 @@ import time
 
 
 #Localden data girişi en iyi data bu!
-# model = torch.hub.load(r"YOUR YOLOv5 path", 'custom', path=r"YOUR DATA MODEL PATH", source='local')
+# model = torch.hub.load(r"YOLOv5 yolu", 'custom', path=r"data model yolun", source='local')
 model = torch.hub.load(r"yolov5", 'custom', path=r"yolov5\gunknife.pt", source='local')
 
 
@@ -14,7 +14,7 @@ model = torch.hub.load(r"yolov5", 'custom', path=r"yolov5\gunknife.pt", source='
 cap=cv2.VideoCapture(r"4.mp4")
 
 def TelegramSendMessage(class_name):
-    "That fonk. have been detect knife or any weapon will be send message."
+    "Bu fonk. bıçak veya herhangi bir silah tespit edildiğinde mesaj gönderecektir."
     #Bot arg.
     TOKEN = "YOUR TOKEN"
     message = f"{class_name} Tespit edildi "+ "\n"+ time.strftime('%H:%M:%S') 
@@ -25,12 +25,12 @@ def TelegramSendMessage(class_name):
 
 
 def TelegramSendImage(frame):
-    "That fonk. have been detect knife or any weapon will be image in every 10 second."
+    "Bu fonk. her 10 saniyede bir bıçak veya herhangi bir silah tespit edildiği zaman olay resmini gönderecektir."
     #Bot arg.
     TOKEN = "YOUR TOKEN" 
     chat_id = "YOUR CHAT ID"
 
-    photo=open(frame, 'rb')
+    photo = open(frame, 'rb')
     url2 = f"https://api.telegram.org/bot{TOKEN}/sendPhoto?chat_id={chat_id}"
     files = {"photo": photo}
 
